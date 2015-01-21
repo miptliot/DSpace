@@ -1,0 +1,29 @@
+/**
+ * The contents of this file are subject to the license and copyright
+ * detailed in the LICENSE and NOTICE files at the root of the source
+ * tree and available online at
+ *
+ * http://www.dspace.org/license/
+ */
+
+/**
+ * You can put your own style in this file.
+ * It will be included in all color schemes
+ */
+
+header .navbar-default {
+   background: url(../images/head.jpg) repeat-x 0px 0px;
+}
+
+.trail-wrapper {
+  background-color: #fff;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .btn-primary {
+  background-color: #0071bc;
+  border-color: #0071bc;
+}
+
+.btn-primary:hover {
+  background-color: #122538;
+}

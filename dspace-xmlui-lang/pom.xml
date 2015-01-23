@@ -15,6 +15,12 @@
         <relativePath>..</relativePath>
     </parent>
 
+    <properties>
+        <!-- This is the path to the root [dspace-src] directory. -->
+        <root.basedir>${basedir}/..</root.basedir>
+    </properties>
+
+
     <organization>
         <name>DuraSpace</name>
         <url>http://www.dspace.org</url>

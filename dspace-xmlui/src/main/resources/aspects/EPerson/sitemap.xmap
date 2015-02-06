@@ -40,6 +40,7 @@ registration, forgotten passwords, editing profiles, and changing passwords.
 		
 		<map:actions>
 			<map:action name="AuthenticateAction" src="org.dspace.app.xmlui.aspect.eperson.AuthenticateAction"/>
+			<map:action name="OAuthAuthenticateAction" src="org.dspace.app.xmlui.aspect.eperson.OAuthAuthenticateAction"/>
 			<map:action name="ShibbolethAction" src="org.dspace.app.xmlui.aspect.eperson.ShibbolethAction"/>
 			<map:action name="LDAPAuthenticateAction" src="org.dspace.app.xmlui.aspect.eperson.LDAPAuthenticateAction"/>
 			<map:action name="UnAuthenticateAction" src="org.dspace.app.xmlui.aspect.eperson.UnAuthenticateAction"/>
@@ -184,7 +185,19 @@ registration, forgotten passwords, editing profiles, and changing passwords.
 				<map:transform type="LDAPLogin"/>
 				<map:serialize type="xml"/>
 			</map:match>
-			
+
+			<map:match pattern="oauth-login">
+				<map:act type="OAuthAuthenticateAction">
+					<!-- Login succeeded, request will be forwarded. -->
+					<map:serialize type="xml"/>
+				</map:act>
+
+				<!-- Login failed, try again. -->
+				<map:transform type="OAuthLogin"/>
+				<map:serialize type="xml"/>
+			</map:match>
+
+
 			<!--
 					Log the user out. The UnAuthenticateAction can not fail and will 
 					always redirect the user to the DSpace homepage.

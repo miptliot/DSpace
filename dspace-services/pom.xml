@@ -10,6 +10,7 @@
         <groupId>org.dspace</groupId>
         <artifactId>dspace-parent</artifactId>
         <version>5.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
     </parent>
 
     <properties>

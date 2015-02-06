@@ -92,6 +92,7 @@
                         <map:transformer name="IncludePageMeta" src="org.dspace.app.xmlui.wing.IncludePageMeta"/>
                         <map:transformer name="stylesheet" src="org.dspace.app.xmlui.cocoon.StylesheetInstructionTransformer"/>
                         <map:transformer name="PasswordLogin" src="org.dspace.app.xmlui.aspect.eperson.PasswordLogin"/>
+                        <map:transformer name="OAuthLogin" src="org.dspace.app.xmlui.aspect.eperson.OAuthLogin"/>
                         <map:transformer name="LDAPLogin" src="org.dspace.app.xmlui.aspect.eperson.LDAPLogin"/>
                         <map:transformer name="notice" src="org.dspace.app.xmlui.aspect.general.NoticeTransformer"/>
                         <map:transformer name="NamespaceFilter" src="org.dspace.app.xmlui.cocoon.NamespaceFilterTransformer"/>

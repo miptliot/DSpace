@@ -132,6 +132,7 @@
         <dependency>
             <groupId>org.dspace</groupId>
             <artifactId>dspace-services</artifactId>
+            <version>5.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

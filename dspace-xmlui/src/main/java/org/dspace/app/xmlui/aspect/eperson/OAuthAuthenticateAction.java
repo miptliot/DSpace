@@ -32,7 +32,6 @@ import com.google.api.client.auth.oauth2.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.store.FileDataStoreFactory;
 
 /**
  * Attempt to authenticate through OAuth2 mechanism
@@ -41,12 +40,6 @@ import com.google.api.client.util.store.FileDataStoreFactory;
  */
 
 public class OAuthAuthenticateAction extends AbstractAction {
-
-    /**
-     * Directory to store user credentials.
-     */
-    private static final java.io.File DATA_STORE_DIR =
-            new java.io.File(System.getProperty("user.home"), ".store/liot_sample");
 
     /**
      * Global instance of the HTTP transport.
@@ -108,67 +101,70 @@ public class OAuthAuthenticateAction extends AbstractAction {
                             ConfigurationManager.getProperty("xmlui.user.oauth.secret")),
                     ConfigurationManager.getProperty("xmlui.user.oauth.key"),
                     ConfigurationManager.getProperty("xmlui.user.oauth.authorization_url"))
-                    .setDataStoreFactory(new FileDataStoreFactory(DATA_STORE_DIR))
                     .build();
-        }
-
-        // Check if user already authorized
-        // XXX: id "user" - can not WORK!!!!
-        final Credential credential = flow.loadCredential("user");
-        if (credential != null
-                && (credential.getRefreshToken() != null
-                || credential.getExpiresInSeconds() != null && credential.getExpiresInSeconds() > 60)) {
-            System.out.println("already authorized");
-
-            // test request
-            HttpRequestFactory requestFactory =
-                    HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
-                        @Override
-                        public void initialize(HttpRequest request) throws IOException {
-                            credential.initialize(request);
-                        }
-                    });
-            GenericUrl url = new GenericUrl("http://liot.mipt.ru/api/me");
-            url.set("access_token", credential.getAccessToken());
-            System.out.println("request result: " + requestFactory.buildGetRequest(url).execute().parseAsString());
-
-            // request for already stored credential
-
-            return null;
+            // save flow to continue oauth process
+            session.setAttribute("flow", flow);
         }
 
         // send token request if code received
         String code = request.getParameter("code");
         if (code != null) {
-            TokenResponse response = flow.newTokenRequest(code).setRedirectUri("http://localhost:8080" + request.getContextPath() + "/oauth-login").execute();
-            System.out.println("response token 2: " + response.getAccessToken());
-            flow.createAndStoreCredential(response, "user").setExpirationTimeMilliseconds(3600L);
+            System.out.println("got code");
+            TokenResponse response = flow.newTokenRequest(code).setRedirectUri(
+                    ConfigurationManager.getProperty("dspace.baseUrl") + request.getContextPath() + "/oauth-login").execute();
 
             HttpRequestFactory requestFactory =
                     HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
                         @Override
                         public void initialize(HttpRequest request) throws IOException {
-                            credential.initialize(request);
+                            //credential.initialize(request);
                             request.setParser(new JsonObjectParser(JSON_FACTORY));
                         }
                     });
-            GenericUrl url = new GenericUrl("http://liot.mipt.ru/api/me");
-            url.set("access_token", credential.getAccessToken());
+            GenericUrl url = new GenericUrl(ConfigurationManager.getProperty("xmlui.user.oauth.profile_url"));
+            url.set("access_token", response.getAccessToken());
 
             HttpResponse httpResponse = requestFactory.buildGetRequest(url).execute();
             OAuthProfile oauthProfile = httpResponse.parseAs(OAuthProfile.class);
-            AuthenticationUtil.logIn(objectModel, createUser(context, oauthProfile));
-            ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT))
-                    .sendRedirect(new GenericUrl("http://localhost:8080" + request.getContextPath() + "/").toString());
+            EPerson ePerson = createUser(context, oauthProfile);
+            AuthenticationUtil.logIn(objectModel, ePerson);
+
+            // GenericUrl redirectUrl = new GenericUrl("http://localhost:8080" + request.getContextPath() + "/");
+            HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
+
+            //String redirectURL = session.getAttribute("resumeURL").toString();
+            //session.removeAttribute("resumeURL");
+
+            //System.out.println("2 redirect to: " + redirectURL);
+
+            redirectResponse.sendRedirect(request.getContextPath());
 
             return null;
         }
 
-        // save flow to continue oauth process
-        session.setAttribute("flow", flow);
+        /*String redirectURL = request.getContextPath();
+
+        if (AuthenticationUtil.isInterupptedRequest(objectModel))
+        {
+            // Resume the request and set the redirect target URL to
+            // that of the originally interrupted request.
+            redirectURL += AuthenticationUtil.resumeInterruptedRequest(objectModel);
+        }
+        else
+        {
+            // Otherwise direct the user to the specified 'loginredirect' page (or homepage by default)
+            String loginRedirect = ConfigurationManager.getProperty("xmlui.user.loginredirect");
+            redirectURL += (loginRedirect != null) ? loginRedirect.trim() : "/";
+        }
+
+        System.out.println("save redirect: " + redirectURL);*/
+        //session.setAttribute("resumeURL", redirectURL);
 
         // redirect to oauth authorization process
-        AuthorizationCodeRequestUrl authorizationUrl = flow.newAuthorizationUrl().setRedirectUri("http://localhost:8080" + request.getContextPath() + "/oauth-login");
+        AuthorizationCodeRequestUrl authorizationUrl = flow.newAuthorizationUrl().setRedirectUri(ConfigurationManager.getProperty("dspace.baseUrl")
+                + request.getContextPath() + "/oauth-login");
+
+        System.out.println("redirect to code request: " + authorizationUrl);
         final HttpServletResponse httpResponse = (HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT);
         httpResponse.sendRedirect(authorizationUrl.toString());
 

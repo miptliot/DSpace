@@ -54,8 +54,16 @@ public class OAuthAuthenticateAction extends AbstractAction {
     private static AuthorizationCodeFlow flow;
 
     private EPerson createUser(Context context, OAuthProfile oAuthProfile) throws Exception {
-        System.out.println("trying to find user by email: " + oAuthProfile.email);
-        EPerson eperson = EPerson.findByEmail(context, oAuthProfile.email);
+        String netId = oAuthProfile.id.toString() + '@' + ConfigurationManager.getProperty("xmlui.user.oauth.domain");
+
+        System.out.println("trying to find user by netid: " + netId);
+
+        EPerson eperson = EPerson.findByNetid(context, netId);
+
+        // authorize by email if exists
+        if (eperson == null && !oAuthProfile.email.isEmpty()) {
+            eperson = EPerson.findByEmail(context, oAuthProfile.email);
+        }
 
         // check if the email belongs to a registered user,
         // if not create a new user with this email
@@ -63,6 +71,7 @@ public class OAuthAuthenticateAction extends AbstractAction {
             context.turnOffAuthorisationSystem();
             System.out.println("account doesn't exists, creation...");
             eperson = EPerson.create(context);
+            eperson.setNetid(netId);
             eperson.setEmail(oAuthProfile.email);
             eperson.setCanLogIn(true);
             eperson.setRequireCertificate(false);
@@ -75,7 +84,6 @@ public class OAuthAuthenticateAction extends AbstractAction {
             System.out.println("account already exists");
         }
 
-        // authorize
         return eperson;
     }
 

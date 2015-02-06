@@ -1,0 +1,88 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/Users/mico/.nvm/v0.10.31/bin/npm', 'install' ]
+2 info using npm@2.1.18
+3 info using node@v0.10.31
+4 warn package.json Mirage2@0.1.1 No description
+5 warn package.json Mirage2@0.1.1 No repository field.
+6 warn package.json Mirage2@0.1.1 No README data
+7 verbose install where, deps [ '/Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot',
+7 verbose install   [ 'bower',
+7 verbose install     'grunt',
+7 verbose install     'grunt-cli',
+7 verbose install     'grunt-contrib-compass',
+7 verbose install     'load-grunt-tasks',
+7 verbose install     'time-grunt',
+7 verbose install     'grunt-contrib-coffee',
+7 verbose install     'grunt-contrib-handlebars',
+7 verbose install     'grunt-usemin',
+7 verbose install     'grunt-contrib-uglify',
+7 verbose install     'grunt-contrib-concat',
+7 verbose install     'grunt-contrib-copy' ] ]
+8 verbose install where, peers [ '/Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot',
+8 verbose install   [] ]
+9 info preinstall Mirage2@0.1.1
+10 verbose already installed skipping grunt-contrib-coffee@~0.7.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+11 verbose already installed skipping grunt-contrib-handlebars@0.9.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+12 verbose already installed skipping grunt-usemin@~2.1.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+13 verbose already installed skipping grunt-contrib-uglify@~0.4.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+14 verbose already installed skipping grunt-contrib-concat@~0.3.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+15 verbose already installed skipping grunt-contrib-copy@~0.5.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+16 verbose already installed skipping bower@1.3.12 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+17 verbose already installed skipping grunt@~0.4.4 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+18 verbose already installed skipping grunt-cli@0.1.13 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+19 verbose already installed skipping grunt-contrib-compass@~0.6.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+20 verbose already installed skipping load-grunt-tasks@~0.1.0 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+21 verbose already installed skipping time-grunt@~0.1.1 /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+22 silly install resolved []
+23 info build /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+24 verbose linkStuff [ false,
+24 verbose linkStuff   false,
+24 verbose linkStuff   false,
+24 verbose linkStuff   '/Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes' ]
+25 info linkStuff Mirage2@0.1.1
+26 verbose linkBins Mirage2@0.1.1
+27 verbose linkMans Mirage2@0.1.1
+28 verbose rebuildBundles Mirage2@0.1.1
+29 verbose rebuildBundles [ '.bin',
+29 verbose rebuildBundles   'bower',
+29 verbose rebuildBundles   'grunt',
+29 verbose rebuildBundles   'grunt-cli',
+29 verbose rebuildBundles   'grunt-contrib-coffee',
+29 verbose rebuildBundles   'grunt-contrib-compass',
+29 verbose rebuildBundles   'grunt-contrib-concat',
+29 verbose rebuildBundles   'grunt-contrib-copy',
+29 verbose rebuildBundles   'grunt-contrib-handlebars',
+29 verbose rebuildBundles   'grunt-contrib-uglify',
+29 verbose rebuildBundles   'grunt-usemin',
+29 verbose rebuildBundles   'load-grunt-tasks',
+29 verbose rebuildBundles   'time-grunt' ]
+30 info install Mirage2@0.1.1
+31 info postinstall Mirage2@0.1.1
+32 verbose unsafe-perm in lifecycle true
+33 info Mirage2@0.1.1 Failed to exec postinstall script
+34 verbose stack Error: Mirage2@0.1.1 postinstall: `bower install`
+34 verbose stack Exit status 8
+34 verbose stack     at EventEmitter.<anonymous> (/Users/mico/.nvm/v0.10.31/lib/node_modules/npm/lib/utils/lifecycle.js:212:16)
+34 verbose stack     at EventEmitter.emit (events.js:98:17)
+34 verbose stack     at ChildProcess.<anonymous> (/Users/mico/.nvm/v0.10.31/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+34 verbose stack     at ChildProcess.emit (events.js:98:17)
+34 verbose stack     at maybeClose (child_process.js:756:16)
+34 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:823:5)
+35 verbose pkgid Mirage2@0.1.1
+36 verbose cwd /Users/mico/Documents/Projects/dspace-mipt/dspace-xmlui/src/main/webapp/themes/Liot
+37 error Darwin 14.0.0
+38 error argv "node" "/Users/mico/.nvm/v0.10.31/bin/npm" "install"
+39 error node v0.10.31
+40 error npm  v2.1.18
+41 error code ELIFECYCLE
+42 error Mirage2@0.1.1 postinstall: `bower install`
+42 error Exit status 8
+43 error Failed at the Mirage2@0.1.1 postinstall script 'bower install'.
+43 error This is most likely a problem with the Mirage2 package,
+43 error not with npm itself.
+43 error Tell the author that this fails on your system:
+43 error     bower install
+43 error You can get their info via:
+43 error     npm owner ls Mirage2
+43 error There is likely additional logging output above.
+44 verbose exit [ 1, true ]

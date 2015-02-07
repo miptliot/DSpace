@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.dspace</groupId>
+    <artifactId>dspace-xmlui-lang</artifactId>
+    <packaging>war</packaging>
+    <name>DSpace XML-UI (Manakin) I18N :: Language Packs</name>
+    <description>
+      DSpace Language Packs to support multiple languages in XMLUI.
+    </description>
+
+    <parent>
+        <groupId>org.dspace</groupId>
+        <artifactId>dspace-parent</artifactId>
+        <version>5.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <properties>
+        <!-- This is the path to the root [dspace-src] directory. -->
+        <root.basedir>${basedir}/..</root.basedir>
+    </properties>
+
+
+    <organization>
+        <name>DuraSpace</name>
+        <url>http://www.dspace.org</url>
+    </organization>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--
+      The SCM repository location is used by Continuum to update against
+      when changes have occurred.  This spawns a new build cycle and releases
+      snapshots into the snapshot repository below.
+    -->
+    <scm>
+        <connection>scm:git:git@github.com:DSpace/dspace-xmlui-lang.git</connection>
+        <developerConnection>scm:git:git@github.com:DSpace/dspace-xmlui-lang.git</developerConnection>
+        <url>git@github.com:DSpace/dspace-xmlui-lang.git</url>
+        <tag>HEAD</tag>
+    </scm>
+   
+</project>

@@ -54,7 +54,7 @@
          <dc-element>title</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Заголовок</label>
+         <label>Название</label>
          <input-type>onebox</input-type>
          <hint>Enter the main title of the item.</hint>
          <required>You must enter a main title for this item.</required>

@@ -2350,32 +2350,24 @@ Translated by Ekaterina Chubich
 
     <!-- End Versioning -->
 
-	 <message key="xmlui.mirage2.itemSummaryView.MetaData">Метаданные</message>
-+    <message key="xmlui.mirage2.itemSummaryView.Collections">Коллекции</message>
-+
-+    <message key="xmlui.mirage2.discovery.reset">Убрать фильтр</message>
-+    <message key="xmlui.mirage2.discovery.newFilter">Добавить новый фильтр</message>
-+    <message key="xmlui.mirage2.discovery.showAdvancedFilters">Показать расширенные фильтры</message>
-+    <message key="xmlui.mirage2.discovery.hideAdvancedFilters">Скрыть расширенные фильтры</message>
-+
-+
-+    <message key="xmlui.mirage2.forms.instancedCompositeFields.add">Добавить</message>
-+    <message key="xmlui.mirage2.forms.instancedCompositeFields.remove">Удалить</message>
-+    <message key="xmlui.mirage2.forms.instancedCompositeFields.noSuggestionError">Ошибка: Данные в поле "Предложить" не применимы для составных полей (например, "Имя").</message>
-+    <message key="xmlui.mirage2.forms.nonInstancedCompositeFields.noSuggestionError">Ошибка: Данные в поле "Предложить" не применимы для составных полей (например, "Имя").</message>
-+    <message key="xmlui.mirage2.forms.nonCompositeFieldSet.add">Добавить</message>
-+    <message key="xmlui.mirage2.forms.nonCompositeFieldSet.remove">Удалить</message>
-+
-+    <message key="xmlui.mirage2.page-structure.aboutThisRepository">Об этом хранилище</message>
-+    <message key="xmlui.mirage2.page-structure.toggleNavigation">Переключить навигацию</message>
-+
-+    <message key="xmlui.mirage2.page-structure.heroUnit.title">Об этом хранилище</message>
-+    <message key="xmlui.mirage2.page-structure.heroUnit.content">To add your own content to this page, edit webapps/xmlui/themes/Mirage2/lib/xsl/core/page-structure.xsl and add your own content to the title, trail, and body. If you wish to add additional pages, you will need to create an additional xsl:when block and match the request-uri to whatever page you are adding. Currently, static pages created through altering XSL are only available under the URI prefix of page/.</message>
-+
-+    <message key="xmlui.mirage2.navigation.rss.feed">Новости</message>
-+
-+    <message key="xmlui.mirage2.choice-authority-control.loading"Загрузка...</message>
-+
-+    <message key="xmlui.mirage2.item-list.thumbnail">Краткое описание</message>
+    <message key="xmlui.mirage2.itemSummaryView.MetaData">Метаданные</message>
+    <message key="xmlui.mirage2.itemSummaryView.Collections">Коллекции</message>
+    <message key="xmlui.mirage2.discovery.reset">Убрать фильтр</message>
+    <message key="xmlui.mirage2.discovery.newFilter">Добавить новый фильтр</message>
+    <message key="xmlui.mirage2.discovery.showAdvancedFilters">Показать расширенные фильтры</message>
+    <message key="xmlui.mirage2.discovery.hideAdvancedFilters">Скрыть расширенные фильтры</message>
+    <message key="xmlui.mirage2.forms.instancedCompositeFields.add">Добавить</message>
+    <message key="xmlui.mirage2.forms.instancedCompositeFields.remove">Удалить</message>
+    <message key="xmlui.mirage2.forms.instancedCompositeFields.noSuggestionError">Ошибка: Данные в поле "Предложить" не применимы для составных полей (например, "Имя").</message>
+    <message key="xmlui.mirage2.forms.nonInstancedCompositeFields.noSuggestionError">Ошибка: Данные в поле "Предложить" не применимы для составных полей (например, "Имя").</message>
+    <message key="xmlui.mirage2.forms.nonCompositeFieldSet.add">Добавить</message>
+    <message key="xmlui.mirage2.forms.nonCompositeFieldSet.remove">Удалить</message>
+    <message key="xmlui.mirage2.page-structure.aboutThisRepository">Об этом хранилище</message>
+    <message key="xmlui.mirage2.page-structure.toggleNavigation">Переключить навигацию</message>
+    <message key="xmlui.mirage2.page-structure.heroUnit.title">Об этом хранилище</message>
+    <message key="xmlui.mirage2.page-structure.heroUnit.content">To add your own content to this page, edit webapps/xmlui/themes/Mirage2/lib/xsl/core/page-structure.xsl and add your own content to the title, trail, and body. If you wish to add additional pages, you will need to create an additional xsl:when block and match the request-uri to whatever page you are adding. Currently, static pages created through altering XSL are only available under the URI prefix of page/.</message>
+    <message key="xmlui.mirage2.navigation.rss.feed">Новости</message>
+    <message key="xmlui.mirage2.choice-authority-control.loading">Загрузка...</message>
+    <message key="xmlui.mirage2.item-list.thumbnail">Краткое описание</message>
 
 </catalogue>

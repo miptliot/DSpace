@@ -813,8 +813,11 @@
             <groupId>org.dspace</groupId>
             <artifactId>dspace-services</artifactId>
             <version>5.1-SNAPSHOT</version>
+<<<<<<< HEAD
             <type>jar</type>
              <classifier>classes</classifier>
+=======
+>>>>>>> 388ec9b54f8154cfe95081721595e77459b7380c
          </dependency>
          <dependency>
              <groupId>org.dspace</groupId>
@@ -1576,7 +1579,11 @@
       <connection>scm:git:git@github.com:DSpace/DSpace.git</connection>
       <developerConnection>scm:git:git@github.com:DSpace/DSpace.git</developerConnection>
       <url>git@github.com:DSpace/DSpace.git</url>
+<<<<<<< HEAD
       <tag>dspace-5.1-SNAPSHOT</tag>
+=======
+      <tag>HEAD</tag>
+>>>>>>> 388ec9b54f8154cfe95081721595e77459b7380c
    </scm>
 
     <!--

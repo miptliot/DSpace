@@ -658,7 +658,7 @@ Translated by Ekaterina Chubich
 
 	<!-- submission progress bar messages -->
 <message key="xmlui.Submission.submit.progressbar.initial-questions">Основные вопросы</message>
-<message key="xmlui.Submission.submit.progressbar.describe">Описание</message>
+<message key="xmlui.Submission.submit.progressbar.describe">Метаданные</message>
   <message key="xmlui.Submission.submit.progressbar.access">Загрузка</message>
   <message key="xmlui.Submission.submit.progressbar.upload">Загрузить  </message>
 <message key="xmlui.Submission.submit.progressbar.verify">Редактировать</message>

@@ -79,7 +79,7 @@
          <label>Дата публикации</label>
          <input-type>date</input-type>
          <hint>Введите дату публикации.
-                        Вы можете не вводить день и/или месяц, если они не известный.</hint>
+                        Вы можете не вводить день и/или месяц, если они не известны.</hint>
          <required>You must enter at least the year.</required>
        </field>
 
@@ -135,7 +135,7 @@
          <repeatable>true</repeatable>
          <label>Тип публикации</label>
          <input-type value-pairs-name="common_types">dropdown</input-type>
-         <hint>Выберите типа документа. Если необходимо выбрать несколько типов, зажмите "Ctrl" или "Shift".</hint>
+         <hint>Выберите тип документа. Если необходимо выбрать несколько типов, зажмите "Ctrl" или "Shift".</hint>
          <required></required>
        </field>
 

@@ -97,28 +97,6 @@
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>identifier</dc-element>
-         <dc-qualifier>citation</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Библиографическое описание</label>
-         <input-type>onebox</input-type>
-         <hint>Введите информацию, необходимую для цитирования этого документа.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>relation</dc-element>
-         <dc-qualifier>ispartofseries</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Серия/№ Доклада</label>
-         <input-type>series</input-type>
-         <hint>Введите серию и номер документа, присвоенные внутри организации.</hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>identifier</dc-element>
          <dc-qualifier></dc-qualifier>
          <!-- An input-type of qualdrop_value MUST be marked as repeatable -->
          <repeatable>true</repeatable>
@@ -176,44 +154,6 @@
          <required></required>
        </field>
 
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier>sponsorship</dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Источники финансирования</label>
-         <input-type>textarea</input-type>
-         <hint>Введите название грантов и/или финансирующих компаний. </hint>
-         <required></required>
-       </field>
-
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>description</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <repeatable>false</repeatable>
-         <label>Описание</label>
-         <input-type>textarea</input-type>
-         <hint>В этом поле напишите описание документа или комментарии к нему.</hint>
-         <required></required>
-       </field>
-     </page>
-   </form>
-
-   <form name="one">
-     <page number="1">
-       <field>
-         <dc-schema>dc</dc-schema>
-         <dc-element>contributor</dc-element>
-         <dc-qualifier>author</dc-qualifier>
-         <repeatable>true</repeatable>
-         <label>Авторы</label>
-         <input-type>name</input-type>
-         <hint>Введите имена авторов этого документа.</hint>
-         <required></required>
-       </field>
-      </page>
-    </form>
  </form-definitions>
 
 
@@ -245,10 +185,6 @@
        <stored-value>ismn</stored-value>
      </pair>
      <pair>
-       <displayed-value>Правительственный документ #</displayed-value>
-       <stored-value>govdoc</stored-value>
-     </pair>
-     <pair>
        <displayed-value>URI</displayed-value>
        <stored-value>uri</stored-value>
      </pair>
@@ -264,11 +200,11 @@
        <stored-value>Article</stored-value>
      </pair>
      <pair>
-       <displayed-value>Тезисы статьи</displayed-value>
+       <displayed-value>Рецензия статьи</displayed-value>
        <stored-value>Thesis</stored-value>
      </pair>
      <pair>
-       <displayed-value>Монография</displayed-value>
+       <displayed-value>Биография</displayed-value>
        <stored-value>study</stored-value>
      </pair>
      <pair>
@@ -282,6 +218,10 @@
      <pair>
        <displayed-value>Глава книги</displayed-value>
        <stored-value>Book chapter</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Письмо</displayed-value>
+       <stored-value>Letter</stored-value>
      </pair>
      <pair>
        <displayed-value>Эксперементальные данные</displayed-value>
@@ -300,7 +240,7 @@
        <stored-value>Learning program</stored-value>
      </pair>
      <pair>
-       <displayed-value>Задания, попросы для самоконтроля</displayed-value>
+       <displayed-value>Задания, вопросы для самоконтроля</displayed-value>
        <stored-value>exercise</stored-value>
      </pair>
      <pair>

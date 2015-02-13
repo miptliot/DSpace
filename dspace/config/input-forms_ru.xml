@@ -127,9 +127,8 @@
          <hint>Выберите язык на котором написан документ. Если нужного языка нет в списке, выберите "Другой". Если в документе не используется никакой язык (например, если документ - изображение), выберите пункт "N/A".</hint>
          <required></required>
        </field>
-     </page>
 
-     <page number="2">
+
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>subject</dc-element>
@@ -153,7 +152,8 @@
          <hint>Введите аннотацию этого документа.</hint>
          <required></required>
        </field>
-
+     </page>
+     </form>
  </form-definitions>
 
 
@@ -339,7 +339,7 @@
        <stored-value>ja</stored-value>
      </pair>
      <pair>
-       <displayed-value>Китайский/displayed-value>
+       <displayed-value>Китайский</displayed-value>
        <stored-value>zh</stored-value>
      </pair>
      <pair>

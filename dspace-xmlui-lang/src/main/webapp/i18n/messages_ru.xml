@@ -2370,4 +2370,130 @@ Translated by Ekaterina Chubich
     <message key="xmlui.mirage2.choice-authority-control.loading">Загрузка...</message>
     <message key="xmlui.mirage2.item-list.thumbnail">Краткое описание</message>
 
+    <!-- org.dspace.app.xmlui.artifactbrowser.AdvancedSearch.java -->
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.contributor.author_filter">Автор</message>
+
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.subject_filter">Тема</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.type_filter">Тип содержимого</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.date.issued">Дата публикации</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateIssued">Дата публикации</message>
+
+
+    <!-- Site Leve Recently Added Content -->
+    <message key="xmlui.ArtifactBrowser.SiteViewer.head_recent_submissions">Последние добавления</message>
+
+    <message key="xmlui.ArtifactBrowser.AbstractRecentSubmissionTransformer.recent_submissions_more">Посмотреть все</message>
+    <message key="xmlui.Discovery.RecentSubmissions.RecentSubmissionTransformer.head">{0}: Последние материалы</message>
+    <message key="xmlui.Discovery.RecentSubmissions.RecentSubmissionTransformer.trail">Последние материалы</message>
+    <message key="xmlui.Discovery.RecentSubmissions.RecentSubmissionTransformer.recent.head">
+	</message>
+
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_type_filter">Вид</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_publisher_filter">Издатель</message>
+
+
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.sort_by.ispartof">Источник</message>
+
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.group_by">Группа результатов по</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.group_by.none">None</message>
+
+
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.group_by.publication_grp">Публикация</message>
+
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_location.comm">Сообщество</message>
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_location.coll">Коллекция</message>
+
+
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.relation.ispartofseries_filter">Серия</message>
+
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.contributor.author_browse">Просмотр по: Автору</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.title_browse">Просмотр по: Названию</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.subject_browse">Просмотр по: Теме</message>
+        
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.description.abstract_browse">Просмотр по: Аннотации</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_series_browse">Просмотр по: Серии</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_sponsor_browse">Просмотр по: Грантодателю</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_identifier_browse">Просмотр по: Идентификатору</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_language_browse">Просмотр по: Языку</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_keyword_browse">Просмотр по: Ключевому слову</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_taxon_browse">Просмотр по: Научному названию</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_contributor_browse">Просмотр по: Участнику</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_creator_browse">Просмотр по: Создателю</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_subject_browse">Просмотр по: Теме</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_description_browse">Просмотр по: Описанию</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_relation_browse">Просмотр по: Отношению</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_mime_browse">Просмотр по: Mime-Type</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_other_browse">Просмотр по: Другому участнику</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_advisor_browse">Просмотр по: Контактирующему автору</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_department_browse">Просмотр по: Отделению</message>
+    <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dateissued_dt_browse">Просмотр по: Дате публикации</message>
+
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.author">Автор</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.title">Название</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject">Тема</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateIssued">Дата публикации</message>
+
+
+
+    <message key="xmlui.dri2xhtml.structural.pagination-info.nototal">Сейчас показано объектов {0}-{1}</message>
+
+    <message key="xmlui.Discovery.AbstractSearch.type_author">Фильтр по: Авторам</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.author">Автор</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.author_filter">Автор</message>
+    <message key="xmlui.Discovery.AbstractSearch.type_subject">Фильтр по: теме</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject">Тема</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.subject_filter">Тема</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateIssued.year">Дата публикации</message>
+
+
+    <message key="xmlui.Discovery.AbstractSearch.startswith">Начать с</message>
+    <message key="xmlui.Discovery.AbstractSearch.startswith.help">Или введите первые несколько букв:</message>
+
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.head">Опции сотрировки:</message>
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.relevance">Наиболее подходящее</message>
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.title_sort_desc">По убыванию названия</message>
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.date.issued_dt_desc">По убыванию даты публикации</message>
+
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.title_sort_asc">По возрастанию названия</message>
+    <message key="xmlui.Discovery.AbstractSearch.sort_by.dc.date.issued_dt_asc">По возрастанию даты публикации</message>
+
+    <message key="xmlui.Discovery.AbstractSearch.rpp">Результатов на странице:</message>
+
+
+    <message key="xmlui.Discovery.AbstractSearch.filters.controls.add-filter">Добавить фильтр</message>
+    <message key="xmlui.Discovery.AbstractSearch.filters.controls.apply-filters">Применить</message>
+    <message key="xmlui.Discovery.AbstractSearch.filters.controls.remove-filter">Убрать фильтр</message>
+    <message key="xmlui.Discovery.AbstractSearch.filters.controls.new-filters.head">Новый фильтр:</message>
+    <message key="xmlui.Discovery.AbstractSearch.filters.controls.current-filters.head">Текущие фильтры:</message>
+    <message key="xmlui.Discovery.AbstractSearch.filters.display">Добавить фильтры</message>
+
+    <message key="xmlui.discovery.SearchFacetFilter.no-results">Значений фильтра не найдено</message>
+
+    <message key="xmlui.discovery.AbstractFiltersTransformer.filters.head">Найти</message>
+    <message key="xmlui.discovery.AbstractFiltersTransformer.filters.view-more">... Далее</message>
+
+
+    <message key="xmlui.Discovery.SimpleSearch.search_scope">Поиск</message>
+    <message key="xmlui.discovery.SimpleSearch.search_label">Поиск</message>
+    <message key="xmlui.Discovery.SimpleSearch.filter_head">Фильтры</message>
+    <message key="xmlui.Discovery.SimpleSearch.filter_help">Используйте фильтры для уточнения результатов поиска.</message>
+
+    <message key="xmlui.Discovery.SimpleSearch.filter.contains">Содержит</message>
+    <message key="xmlui.Discovery.SimpleSearch.filter.equals">Равно</message>
+    <message key="xmlui.Discovery.SimpleSearch.filter.authority">ID</message>
+	<message key="xmlui.Discovery.SimpleSearch.filter.notcontains">Не содержит</message>
+    <message key="xmlui.Discovery.SimpleSearch.filter.notequals">Не равно</message>
+    <message key="xmlui.Discovery.SimpleSearch.filter.notauthority">Нет ID</message>
+    
+    <message key="xmlui.Discovery.RelatedItems.head">Похожие материалы</message>
+    <message key="xmlui.Discovery.RelatedItems.help">Показаны элементы, связанные по названию, автору , создателю и теме.</message>
+
+    <message key="xmlui.Discovery.AbstractSearch.head1_community">Показаны {0} из вообще найденных {1} результатов для сообщества: {2}. <span class="searchTime">({3} seconds)</span></message>
+   	<message key="xmlui.Discovery.AbstractSearch.head1_collection">Показаны {0} из вообще найденных {1} результатов для сообщества: {2}. <span class="searchTime">({3} seconds)</span></message>
+   	<message key="xmlui.Discovery.AbstractSearch.head1_none">Показаны {0} из вообще найденных {1} результатов. <span class="searchTime">({2} seconds)</span></message>
+
+    <message key="xmlui.Discovery.AbstractSearch.head2">Сообщества или Коллекции , соответствующие вашему запросу</message>
+   	<message key="xmlui.Discovery.AbstractSearch.head3">Предметы , соответствующие вашему запросу</message>
+
+   	<message key="xmlui.Discovery.SimpleSearch.did_you_mean">Вы имели в виду: </message>
 </catalogue>

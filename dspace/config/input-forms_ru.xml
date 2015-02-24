@@ -200,16 +200,28 @@
        <stored-value>Article</stored-value>
      </pair>
      <pair>
-       <displayed-value>Рецензия статьи</displayed-value>
+       <displayed-value>Обзорная статья</displayed-value>
        <stored-value>Thesis</stored-value>
      </pair>
      <pair>
-       <displayed-value>Биография</displayed-value>
+       <displayed-value>Монография</displayed-value>
        <stored-value>study</stored-value>
      </pair>
      <pair>
-       <displayed-value>Коррекция</displayed-value>
+       <displayed-value>Примечание</displayed-value>
+       <stored-value>Note</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Редакционная статья</displayed-value>
+       <stored-value>Editorial</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Исправление</displayed-value>
        <stored-value>correction</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Биография</displayed-value>
+       <stored-value>biography</stored-value>
      </pair>
      <pair>
        <displayed-value>Книга</displayed-value>
@@ -256,7 +268,7 @@
        <stored-value>thesis report</stored-value>
      </pair>
      <pair>
-       <displayed-value>Анонс конференции</displayed-value>
+       <displayed-value>Тезисы конференции</displayed-value>
        <stored-value>preview</stored-value>
      </pair>
      <pair>

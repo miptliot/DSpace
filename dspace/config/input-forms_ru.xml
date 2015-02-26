@@ -220,6 +220,14 @@
        <stored-value>correction</stored-value>
      </pair>
      <pair>
+       <displayed-value>Диссертация</displayed-value>
+       <stored-value>diss</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Автореферат</displayed-value>
+       <stored-value>synopsis</stored-value>
+     </pair>
+     <pair>
        <displayed-value>Биография</displayed-value>
        <stored-value>biography</stored-value>
      </pair>

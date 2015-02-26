@@ -267,6 +267,10 @@
        <displayed-value>Программа конференции</displayed-value>
        <stored-value>Program conference</stored-value>
      </pair>
+     <pair>
+       <displayed-value>Анонс конференции</displayed-value>
+       <stored-value>announcement</stored-value>
+     </pair>
       <pair>
        <displayed-value>Лекция или текст доклада</displayed-value>
        <stored-value>Txt report</stored-value>

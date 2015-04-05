@@ -118,6 +118,8 @@
                     </div>
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
+                    <xsl:call-template name="itemSummaryView-DIM-publisher"/>
+                    <xsl:call-template name="itemSummaryView-DIM-subjects"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
@@ -259,7 +261,12 @@
             <xsl:if test="@authority">
                 <xsl:attribute name="class"><xsl:text>ds-dc_contributor_author-authority</xsl:text></xsl:attribute>
             </xsl:if>
-            <xsl:copy-of select="node()"/>
+            <a>
+                <xsl:attribute name="href">
+                    <xsl:value-of select="concat($context-path, jstring:replaceAll(jstring:new($document/dri:meta/dri:pageMeta/dri:metadata[@element='focus' and @qualifier='container']), 'hdl:', '/handle/'), '/browse?value=', encoder:encode(node(), 'UTF-8'), '&amp;type=author')"/>
+                </xsl:attribute>
+                <xsl:copy-of select="node()"/>
+            </a>
         </div>
     </xsl:template>
 
@@ -293,6 +300,37 @@
                 <xsl:for-each select="dim:field[@element='date' and @qualifier='issued']">
                     <xsl:copy-of select="substring(./node(),1,10)"/>
                     <xsl:if test="count(following-sibling::dim:field[@element='date' and @qualifier='issued']) != 0">
+                        <br/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template name="itemSummaryView-DIM-subjects">
+        <xsl:if test="dim:field[@element='subject' and descendant::text()]">
+            <div class="simple-item-view-date word-break item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-subject</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='subject']">
+                    <xsl:copy-of select="./node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@element='subject']) != 0">
+                        <br/>
+                    </xsl:if>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-publisher">
+        <xsl:if test="dim:field[@element='publisher' and descendant::text()]">
+            <div class="simple-item-view-date word-break item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-publisher</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='publisher']">
+                    <xsl:copy-of select="./node()"/>
+                    <xsl:if test="count(following-sibling::dim:field[@element='publisher']) != 0">
                         <br/>
                     </xsl:if>
                 </xsl:for-each>

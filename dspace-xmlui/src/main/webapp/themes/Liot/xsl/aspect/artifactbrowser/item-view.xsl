@@ -119,13 +119,13 @@
                     <xsl:call-template name="itemSummaryView-DIM-date"/>
                     <xsl:call-template name="itemSummaryView-DIM-authors"/>
                     <xsl:call-template name="itemSummaryView-DIM-publisher"/>
-                    <xsl:call-template name="itemSummaryView-DIM-subjects"/>
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
+                    <xsl:call-template name="itemSummaryView-DIM-subjects"/>
                     <xsl:call-template name="itemSummaryView-DIM-URI"/>
                     <xsl:call-template name="itemSummaryView-collections"/>
                 </div>
@@ -313,10 +313,13 @@
                     <i18n:text>xmlui.dri2xhtml.METS-1.0.item-subject</i18n:text>
                 </h5>
                 <xsl:for-each select="dim:field[@element='subject']">
-                    <xsl:copy-of select="./node()"/>
-                    <xsl:if test="count(following-sibling::dim:field[@element='subject']) != 0">
-                        <br/>
-                    </xsl:if>
+                    <a>
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat($context-path, jstring:replaceAll(jstring:new($document/dri:meta/dri:pageMeta/dri:metadata[@element='focus' and @qualifier='container']), 'hdl:', '/handle/'), '/browse?value=', encoder:encode(./node(), 'UTF-8'), '&amp;type=subject')"/>
+                        </xsl:attribute>
+                        <xsl:copy-of select="./node()"/>
+                    </a>
+                    <xsl:if test="count(following-sibling::dim:field[@element='subject']) != 0">, </xsl:if>
                 </xsl:for-each>
             </div>
         </xsl:if>

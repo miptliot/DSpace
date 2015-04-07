@@ -619,6 +619,20 @@
         </div>
     </xsl:template>
 
+    <xsl:template name="headTitle">
+        <i18n:translate>
+        <xsl:for-each select="i18n:translate">
+            <xsl:for-each select="i18n:text">
+                <i18n:text><xsl:copy-of select="node()"/></i18n:text>
+            </xsl:for-each>
+            <xsl:for-each select="i18n:param">
+                <xsl:copy-of select="node()"/>
+                <xsl:text> </xsl:text>
+            </xsl:for-each>
+        </xsl:for-each>
+        </i18n:translate>
+    </xsl:template>
+
     <xsl:template name="renderHead">
         <xsl:param name="class"/>
         <xsl:variable name="head_count" select="count(ancestor::dri:*[dri:head])"/>
@@ -635,7 +649,7 @@
                     </xsl:if>
                 </xsl:with-param>
             </xsl:call-template>
-            <xsl:apply-templates />
+            <xsl:call-template name="headTitle" />
         </xsl:element>
     </xsl:template>
 

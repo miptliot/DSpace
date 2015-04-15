@@ -621,7 +621,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.Submission.Submissions.submit_info1c">Пополнение коллекции заключается в описании элемента и загрузки файлов, относящихся к нему. Каждое сообщество или коллекция может иметь свои правила пополнения.</message>
 <message key="xmlui.Submission.Submissions.submit_head2">Незавершенные пополнения</message>
 <message key="xmlui.Submission.Submissions.submit_info2a">У Вас есть незавершённые пополнения. Вы также можете</message>
-<message key="xmlui.Submission.Submissions.submit_info2b"> загрузить ещё один документь</message>
+<message key="xmlui.Submission.Submissions.submit_info2b"> загрузить ещё один документ</message>
 <message key="xmlui.Submission.Submissions.submit_info2c">.</message>
 <message key="xmlui.Submission.Submissions.submit_column1"></message>
 <message key="xmlui.Submission.Submissions.submit_column2">Название</message>

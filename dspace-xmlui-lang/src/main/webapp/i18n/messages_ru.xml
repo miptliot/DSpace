@@ -252,7 +252,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.ArtifactBrowser.Navigation.communities_and_collections">Сообщества и коллекции</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_title">Названия</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_author">Авторы</message>
-<message key="xmlui.ArtifactBrowser.Navigation.browse_subject">Тематика</message>
+<message key="xmlui.ArtifactBrowser.Navigation.browse_subject">Ключевые слова</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_dateissued">Дата публикации</message>
 <message key="xmlui.ArtifactBrowser.Navigation.browse_dateaccessioned">Дата добавления</message>
 <message key="xmlui.ArtifactBrowser.Navigation.head_this_collection">Эта коллекция</message>

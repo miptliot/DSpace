@@ -2102,7 +2102,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.dri2xhtml.METS-1.0.item-uri">URI</message>
 <message key="xmlui.dri2xhtml.METS-1.0.item-date">Дата</message>
 <message key="xmlui.dri2xhtml.METS-1.0.item-publisher">Редактор</message>
-<message key="xmlui.dri2xhtml.METS-1.0.item-subject">Тематика</message>
+<message key="xmlui.dri2xhtml.METS-1.0.item-subject">Ключевые слова</message>
 
 <message key="xmlui.dri2xhtml.METS-1.0.item-files-head">Файлы в этом документе</message>
 <message key="xmlui.dri2xhtml.METS-1.0.item-files-file">Файл</message>

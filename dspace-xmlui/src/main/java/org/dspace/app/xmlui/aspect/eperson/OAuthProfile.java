@@ -10,6 +10,15 @@ public class OAuthProfile {
     public String email;
 
     @Key
+    public String firstname;
+
+    @Key
+    public String lastname;
+
+    @Key
+    public String secondname;
+
+    @Key
     public String name;
 
     @Key

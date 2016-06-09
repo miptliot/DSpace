@@ -53,16 +53,16 @@ public class OAuthAuthenticateAction extends AbstractAction {
 
     private static AuthorizationCodeFlow flow;
 
-    private EPerson createUser(Context context, OAuthProfile oAuthProfile) throws Exception {
-        String netId = oAuthProfile.id.toString() + '@' + ConfigurationManager.getProperty("xmlui.user.oauth.domain");
+    private EPerson createUser(Context context, OAuthProfile oAuthEmail, OAuthProfile oAuthUserinfo) throws Exception {
+        String netId = oAuthUserinfo.id.toString() + '@' + ConfigurationManager.getProperty("xmlui.user.oauth.domain");
 
         System.out.println("trying to find user by netid: " + netId);
 
         EPerson eperson = EPerson.findByNetid(context, netId);
 
         // authorize by email if exists
-        if (eperson == null && !oAuthProfile.email.isEmpty()) {
-            eperson = EPerson.findByEmail(context, oAuthProfile.email);
+        if (eperson == null && !oAuthEmail.email.isEmpty()) {
+            eperson = EPerson.findByEmail(context, oAuthEmail.email);
         }
 
         // check if the email belongs to a registered user,
@@ -72,12 +72,12 @@ public class OAuthAuthenticateAction extends AbstractAction {
             System.out.println("account doesn't exists, creation...");
             eperson = EPerson.create(context);
             eperson.setNetid(netId);
-            eperson.setEmail(oAuthProfile.email);
+            eperson.setEmail(oAuthEmail.email);
             eperson.setCanLogIn(true);
             eperson.setRequireCertificate(false);
             eperson.setSelfRegistered(false);
-            eperson.setLastName(oAuthProfile.surname);
-            eperson.setFirstName(oAuthProfile.name);
+            eperson.setLastName(oAuthUserinfo.lastname);
+            eperson.setFirstName(oAuthUserinfo.firstname);
             eperson.update();
             context.restoreAuthSystemState();
         } else {
@@ -129,12 +129,19 @@ public class OAuthAuthenticateAction extends AbstractAction {
                             request.setParser(new JsonObjectParser(JSON_FACTORY));
                         }
                     });
+
             GenericUrl url = new GenericUrl(ConfigurationManager.getProperty("xmlui.user.oauth.profile_url"));
             url.set("access_token", response.getAccessToken());
+            url.set("get", "email");
 
             HttpResponse httpResponse = requestFactory.buildGetRequest(url).execute();
-            OAuthProfile oauthProfile = httpResponse.parseAs(OAuthProfile.class);
-            EPerson ePerson = createUser(context, oauthProfile);
+            OAuthProfile oAuthEmail = httpResponse.parseAs(OAuthProfile.class);
+
+            url.set("get", "userinfo");
+            httpResponse = requestFactory.buildGetRequest(url).execute();
+            OAuthProfile oAuthUserinfo = httpResponse.parseAs(OAuthProfile.class);
+
+            EPerson ePerson = createUser(context, oAuthEmail, oAuthUserinfo);
             AuthenticationUtil.logIn(objectModel, ePerson);
 
             // GenericUrl redirectUrl = new GenericUrl("http://localhost:8080" + request.getContextPath() + "/");
@@ -179,4 +186,3 @@ public class OAuthAuthenticateAction extends AbstractAction {
         return null;
     }
 }
-

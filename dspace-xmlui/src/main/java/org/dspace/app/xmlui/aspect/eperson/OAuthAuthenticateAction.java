@@ -141,11 +141,22 @@ public class OAuthAuthenticateAction extends AbstractAction {
             httpResponse = requestFactory.buildGetRequest(url).execute();
             OAuthProfile oAuthUserinfo = httpResponse.parseAs(OAuthProfile.class);
 
+            // url.set("get", "student");
+            // httpResponse = requestFactory.buildGetRequest(url).execute();
+            // OAuthProfile oAuthStudent = httpResponse.parseAs(OAuthProfile.class);
+
+            HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
+            if (oAuthEmail.email.split("@")[1].equals("phystech.edu")) {
+              // redirect to main page if not student
+              redirectResponse.sendRedirect("http://mipt.ru");
+              return null;
+            }
+
             EPerson ePerson = createUser(context, oAuthEmail, oAuthUserinfo);
             AuthenticationUtil.logIn(objectModel, ePerson);
 
             // GenericUrl redirectUrl = new GenericUrl("http://localhost:8080" + request.getContextPath() + "/");
-            HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
+            // HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
 
             //String redirectURL = session.getAttribute("resumeURL").toString();
             //session.removeAttribute("resumeURL");

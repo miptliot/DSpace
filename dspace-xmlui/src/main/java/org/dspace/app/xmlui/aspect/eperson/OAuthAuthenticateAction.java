@@ -130,6 +130,9 @@ public class OAuthAuthenticateAction extends AbstractAction {
                         }
                     });
 
+            // save access_token next usage
+            session.setAttribute("access_token", response.getAccessToken());
+
             GenericUrl url = new GenericUrl(ConfigurationManager.getProperty("xmlui.user.oauth.profile_url"));
             url.set("access_token", response.getAccessToken());
             url.set("get", "email");

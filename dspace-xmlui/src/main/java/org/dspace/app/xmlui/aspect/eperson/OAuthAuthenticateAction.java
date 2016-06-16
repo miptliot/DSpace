@@ -10,6 +10,9 @@ package org.dspace.app.xmlui.aspect.eperson;
 import java.io.IOException;
 
 import java.util.Map;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -99,7 +102,7 @@ public class OAuthAuthenticateAction extends AbstractAction {
         if (session.getAttribute("flow") != null) {
             flow = (AuthorizationCodeFlow) session.getAttribute("flow");
         } else {
-            flow = new AuthorizationCodeFlow.Builder(BearerToken
+            AuthorizationCodeFlow.Builder builder = new AuthorizationCodeFlow.Builder(BearerToken
                     .authorizationHeaderAccessMethod(),
                     HTTP_TRANSPORT,
                     JSON_FACTORY,
@@ -108,9 +111,15 @@ public class OAuthAuthenticateAction extends AbstractAction {
                             ConfigurationManager.getProperty("xmlui.user.oauth.key"),
                             ConfigurationManager.getProperty("xmlui.user.oauth.secret")),
                     ConfigurationManager.getProperty("xmlui.user.oauth.key"),
-                    ConfigurationManager.getProperty("xmlui.user.oauth.authorization_url"))
-                    .build();
+                    ConfigurationManager.getProperty("xmlui.user.oauth.authorization_url"));
             // save flow to continue oauth process
+            List<String> scopes = Arrays.asList(
+              "email",
+              "userinfo",
+              "student"
+            );
+            builder.setScopes(scopes);
+            flow = builder.build();
             session.setAttribute("flow", flow);
         }
 

@@ -15,8 +15,15 @@ import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 
+import com.google.api.client.json.JsonObjectParser;
+import com.google.api.client.http.*;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.http.javanet.NetHttpTransport;
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
+import org.apache.http.util.EntityUtils;
+import org.apache.http.HttpEntity;
 import org.dspace.app.util.DCInput;
 import org.dspace.app.util.DCInputSet;
 import org.dspace.app.util.DCInputsReader;
@@ -41,6 +48,7 @@ import org.dspace.app.xmlui.wing.element.Text;
 import org.dspace.app.xmlui.wing.element.TextArea;
 import org.dspace.app.xmlui.wing.element.Hidden;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.core.ConfigurationManager;
 import org.dspace.content.Collection;
 import org.dspace.content.DCDate;
 import org.dspace.content.DCPersonName;
@@ -89,6 +97,9 @@ public class DescribeStep extends AbstractSubmissionStep
         message("xmlui.Submission.submit.DescribeStep.series_name");
     protected static final Message T_report_no=
         message("xmlui.Submission.submit.DescribeStep.report_no");
+
+    static final JsonFactory JSON_FACTORY = new JacksonFactory();
+    private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
 
         /**
      * A shared resource of the inputs reader. The 'inputs' are the
@@ -193,6 +204,24 @@ public class DescribeStep extends AbstractSubmissionStep
 
                 Hidden hidden = form.addItem().addHidden("access_token", "submit-hidden");
                 hidden.setValue((String)session.getAttribute("access_token"));
+
+                // student api request
+                GenericUrl url = new GenericUrl(ConfigurationManager.getProperty("xmlui.user.oauth.profile_url"));
+                url.set("access_token", session.getAttribute("access_token"));
+                url.set("get", "student");
+
+                HttpRequestFactory requestFactory =
+                        HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
+                            @Override
+                            public void initialize(HttpRequest request) throws IOException {
+                                //credential.initialize(request);
+                                request.setParser(new JsonObjectParser(JSON_FACTORY));
+                            }
+                        });
+
+                HttpResponse httpResponse = requestFactory.buildGetRequest(url).execute();
+                Hidden student_hidden = form.addItem().addHidden("student_info", "student-info-hidden");
+                student_hidden.setValue(httpResponse.parseAsString());
 
                 // Fetch the document type (dc.type)
                 String documentType = "";

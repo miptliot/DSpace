@@ -20,6 +20,8 @@ import com.google.api.client.http.*;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.http.HttpMethods;
+
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
 import org.apache.http.util.EntityUtils;
@@ -209,19 +211,36 @@ public class DescribeStep extends AbstractSubmissionStep
                 GenericUrl url = new GenericUrl(ConfigurationManager.getProperty("xmlui.user.oauth.profile_url"));
                 url.set("access_token", session.getAttribute("access_token"));
                 url.set("get", "student");
-
+                //
+                // HttpRequestFactory requestFactory =
+                //         HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
+                //             @Override
+                //             public void initialize(HttpRequest request) throws IOException {
+                //                 //credential.initialize(request);
+                //                 request.setParser(new JsonObjectParser(JSON_FACTORY));
+                //             }
+                //         });
+                //
                 HttpRequestFactory requestFactory =
-                        HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
-                            @Override
-                            public void initialize(HttpRequest request) throws IOException {
-                                //credential.initialize(request);
-                                request.setParser(new JsonObjectParser(JSON_FACTORY));
-                            }
-                        });
+                  new NetHttpTransport().createRequestFactory(new HttpRequestInitializer() {
+                     @Override
+                     public void initialize(final HttpRequest request) {
+                        request.setThrowExceptionOnExecuteError(false);
+                        request.setReadTimeout(45000);
+                        request.setConnectTimeout(45000);
+                     }
+                  });
 
                 HttpResponse httpResponse = requestFactory.buildGetRequest(url).execute();
+                String contentTypeHeader = httpResponse.getContentType();
+                String responseMessage = httpResponse.parseAsString();
                 Hidden student_hidden = form.addItem().addHidden("student_info", "student-info-hidden");
-                student_hidden.setValue(httpResponse.parseAsString());
+                student_hidden.setValue(responseMessage);
+
+                System.out.println("response: " + httpResponse.getStatusMessage());
+                System.out.println("contentTypeHeader: " + contentTypeHeader);
+                System.out.println("response message: " + responseMessage);
+
 
                 // Fetch the document type (dc.type)
                 String documentType = "";

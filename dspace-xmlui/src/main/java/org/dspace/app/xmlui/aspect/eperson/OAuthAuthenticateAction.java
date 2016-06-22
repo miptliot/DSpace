@@ -116,7 +116,8 @@ public class OAuthAuthenticateAction extends AbstractAction {
             List<String> scopes = Arrays.asList(
               "email",
               "userinfo",
-              "student"
+              "student",
+              "diploma"
             );
             builder.setScopes(scopes);
             flow = builder.build();

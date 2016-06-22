@@ -232,15 +232,20 @@ public class DescribeStep extends AbstractSubmissionStep
                   });
 
                 HttpResponse httpResponse = requestFactory.buildGetRequest(url).execute();
-                String contentTypeHeader = httpResponse.getContentType();
                 String responseMessage = httpResponse.parseAsString();
+
                 Hidden student_hidden = form.addItem().addHidden("student_info", "student-info-hidden");
                 student_hidden.setValue(responseMessage);
 
-                System.out.println("response: " + httpResponse.getStatusMessage());
-                System.out.println("contentTypeHeader: " + contentTypeHeader);
-                System.out.println("response message: " + responseMessage);
+                url.set("get", "userinfo");
+                httpResponse = requestFactory.buildGetRequest(url).execute();
+                form.addItem().addHidden("student_userinfo", "student-userinfo-hidden")
+                              .setValue(httpResponse.parseAsString());
 
+                url.set("get", "diploma");
+                httpResponse = requestFactory.buildGetRequest(url).execute();
+                form.addItem().addHidden("student_diploma", "student-diploma-hidden")
+                              .setValue(httpResponse.parseAsString());
 
                 // Fetch the document type (dc.type)
                 String documentType = "";

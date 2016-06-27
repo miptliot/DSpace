@@ -31,6 +31,7 @@ import org.dspace.app.xmlui.utils.ContextUtil;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
+import org.dspace.eperson.Group;
 import com.google.api.client.auth.oauth2.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -70,6 +71,9 @@ public class OAuthAuthenticateAction extends AbstractAction {
 
         // check if the email belongs to a registered user,
         // if not create a new user with this email
+
+        String defaultGroup = ConfigurationManager.getProperty("xmlui.user.oauth.default_group");
+
         if (eperson == null) {
             context.turnOffAuthorisationSystem();
             System.out.println("account doesn't exists, creation...");
@@ -82,6 +86,16 @@ public class OAuthAuthenticateAction extends AbstractAction {
             eperson.setLastName(oAuthUserinfo.lastname);
             eperson.setFirstName(oAuthUserinfo.firstname);
             eperson.update();
+            if (defaultGroup != null) {
+              Group miptusers = Group.find(context, Integer.parseInt(defaultGroup));
+              if (miptusers == null)
+              {
+                throw new IllegalStateException("Error, no mipt users group (group 11) found");
+              }
+              miptusers.addMember(eperson);
+              miptusers.update();
+            }
+
             context.restoreAuthSystemState();
         } else {
             System.out.println("account already exists");

@@ -934,6 +934,72 @@ from under pageMeta. -->
                   ga('send', 'pageview');
            </xsl:text></script>
         </xsl:if>
+		<script> 
+		<xsl:text disable-output-escaping="yes">
+		<![CDATA[
+
+		  var form =  $('#aspect_submission_StepTransformer_div_submit-describe');
+		  var fieldset = $('#aspect_submission_StepTransformer_list_submit-describe');
+		  var data = JSON.parse($('#aspect_submission_StepTransformer_field_student_info').val());
+		data = $.fn.extend({}, JSON.parse($('#aspect_submission_StepTransformer_field_student_diploma').val()), data);
+//console.log('diploma', JSON.parse($('#aspect_submission_StepTransformer_field_student_diploma').val()));
+		data = $.fn.extend({}, JSON.parse($('#aspect_submission_StepTransformer_field_student_userinfo').val()), data);
+//console.log('userinfo', JSON.parse($('#aspect_submission_StepTransformer_field_student_userinfo').val()));
+
+		$('#aspect_submission_StepTransformer_field_student_info').parents('.ds-form-item.row').remove()
+		$('#aspect_submission_StepTransformer_field_student_diploma').parents('.ds-form-item.row').remove()
+		$('#aspect_submission_StepTransformer_field_student_userinfo').parents('.ds-form-item.row').remove()
+
+		//disable fields;
+		console.log(data)
+		  
+		  var button = $('<button />')
+			.text('Вставить данные о дипломной работе')
+			.addClass('btn btn-primary')
+			.attr({
+			    role : 'button'
+			})
+			.on('click', function(e) {
+				e.preventDefault();
+				if (data.lastname || data.firstname) {
+						$('#aspect_submission_StepTransformer_field_dc_firstname').val(data.firstname);
+						$('#aspect_submission_StepTransformer_field_dc_lastname').val(data.lastname);
+						$('#aspect_submission_StepTransformer_field_dc_secondname').val(data.secondname);
+				}
+				if (data.faculty) {
+				    $('#aspect_submission_StepTransformer_field_dc_faculty').val(data.faculty.name)
+				    $('#aspect_submission_StepTransformer_field_dc_faculty').attr('disabled', true)
+				}
+				if (data.cathedra) {
+				    $('#aspect_submission_StepTransformer_field_dc_cathedra').val(data.cathedra.name)
+				    $('#aspect_submission_StepTransformer_field_dc_cathedra').attr('disabled', true)
+				}
+				if (data.speciality) {
+				    $('#aspect_submission_StepTransformer_field_dc_specialitycode').val(data.speciality.code);
+				    $('#aspect_submission_StepTransformer_field_dc_specialitycode').attr('disabled', true)
+				    $('#aspect_submission_StepTransformer_field_dc_specialityname').val(data.speciality.name);
+				    $('#aspect_submission_StepTransformer_field_dc_specialityname').attr('disabled', true)
+				}
+				if (data.scientific_adviser) {
+					$('#aspect_submission_StepTransformer_field_dc_adviser').val(data.scientific_adviser)
+				}
+				
+				if (data.diploma_theme) {
+					$('#aspect_submission_StepTransformer_field_dc_title').val(data.diploma_theme);
+				}
+				if (data.head_chair) {
+					$('#aspect_submission_StepTransformer_field_dc_teacher').val(data.head_chair);
+				}
+				$('#aspect_submission_StepTransformer_field_dc_date_issued_year').val(new Date().getFullYear());
+			});
+		  
+		  fieldset.prepend(button);
+
+
+		]]>
+		</xsl:text>
+		</script>
+
     </xsl:template>
 
     <!--The Language Selection-->

@@ -641,7 +641,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.Submission.Submissions.status_0">Отправлено</message>
 <message key="xmlui.Submission.Submissions.status_1">Ожидает модерации</message>
 <message key="xmlui.Submission.Submissions.status_2">Модерируется</message>
-<message key="xmlui.Submission.Submissions.status_3">Ожидает редавтуры</message>
+<message key="xmlui.Submission.Submissions.status_3">Ожидает редактуры</message>
 <message key="xmlui.Submission.Submissions.status_4">Редактируется</message>
 <message key="xmlui.Submission.Submissions.status_5">Ожидает финальной редактуры</message>
 <message key="xmlui.Submission.Submissions.status_6">Отредактировано</message>

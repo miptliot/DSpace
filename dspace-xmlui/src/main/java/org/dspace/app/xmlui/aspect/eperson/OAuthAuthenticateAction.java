@@ -10,6 +10,9 @@ package org.dspace.app.xmlui.aspect.eperson;
 import java.io.IOException;
 
 import java.util.Map;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,6 +31,7 @@ import org.dspace.app.xmlui.utils.ContextUtil;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
+import org.dspace.eperson.Group;
 import com.google.api.client.auth.oauth2.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -67,6 +71,9 @@ public class OAuthAuthenticateAction extends AbstractAction {
 
         // check if the email belongs to a registered user,
         // if not create a new user with this email
+
+        String defaultGroup = ConfigurationManager.getProperty("xmlui.user.oauth.default_group");
+
         if (eperson == null) {
             context.turnOffAuthorisationSystem();
             System.out.println("account doesn't exists, creation...");
@@ -79,6 +86,16 @@ public class OAuthAuthenticateAction extends AbstractAction {
             eperson.setLastName(oAuthUserinfo.lastname);
             eperson.setFirstName(oAuthUserinfo.firstname);
             eperson.update();
+            if (defaultGroup != null) {
+              Group miptusers = Group.find(context, Integer.parseInt(defaultGroup));
+              if (miptusers == null)
+              {
+                throw new IllegalStateException("Error, no mipt users group (group 11) found");
+              }
+              miptusers.addMember(eperson);
+              miptusers.update();
+            }
+
             context.restoreAuthSystemState();
         } else {
             System.out.println("account already exists");
@@ -99,7 +116,7 @@ public class OAuthAuthenticateAction extends AbstractAction {
         if (session.getAttribute("flow") != null) {
             flow = (AuthorizationCodeFlow) session.getAttribute("flow");
         } else {
-            flow = new AuthorizationCodeFlow.Builder(BearerToken
+            AuthorizationCodeFlow.Builder builder = new AuthorizationCodeFlow.Builder(BearerToken
                     .authorizationHeaderAccessMethod(),
                     HTTP_TRANSPORT,
                     JSON_FACTORY,
@@ -108,9 +125,16 @@ public class OAuthAuthenticateAction extends AbstractAction {
                             ConfigurationManager.getProperty("xmlui.user.oauth.key"),
                             ConfigurationManager.getProperty("xmlui.user.oauth.secret")),
                     ConfigurationManager.getProperty("xmlui.user.oauth.key"),
-                    ConfigurationManager.getProperty("xmlui.user.oauth.authorization_url"))
-                    .build();
+                    ConfigurationManager.getProperty("xmlui.user.oauth.authorization_url"));
             // save flow to continue oauth process
+            List<String> scopes = Arrays.asList(
+              "email",
+              "userinfo",
+              "student",
+              "diploma"
+            );
+            builder.setScopes(scopes);
+            flow = builder.build();
             session.setAttribute("flow", flow);
         }
 
@@ -130,6 +154,9 @@ public class OAuthAuthenticateAction extends AbstractAction {
                         }
                     });
 
+            // save access_token next usage
+            session.setAttribute("access_token", response.getAccessToken());
+
             GenericUrl url = new GenericUrl(ConfigurationManager.getProperty("xmlui.user.oauth.profile_url"));
             url.set("access_token", response.getAccessToken());
             url.set("get", "email");
@@ -141,11 +168,22 @@ public class OAuthAuthenticateAction extends AbstractAction {
             httpResponse = requestFactory.buildGetRequest(url).execute();
             OAuthProfile oAuthUserinfo = httpResponse.parseAs(OAuthProfile.class);
 
+            // url.set("get", "student");
+            // httpResponse = requestFactory.buildGetRequest(url).execute();
+            // OAuthProfile oAuthStudent = httpResponse.parseAs(OAuthProfile.class);
+
+            HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
+            if (!oAuthEmail.email.split("@")[1].equals("phystech.edu")) {
+              // redirect to main page if not student
+              redirectResponse.sendRedirect("http://mipt.ru");
+              return null;
+            }
+
             EPerson ePerson = createUser(context, oAuthEmail, oAuthUserinfo);
             AuthenticationUtil.logIn(objectModel, ePerson);
 
             // GenericUrl redirectUrl = new GenericUrl("http://localhost:8080" + request.getContextPath() + "/");
-            HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
+            // HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
 
             //String redirectURL = session.getAttribute("resumeURL").toString();
             //session.removeAttribute("resumeURL");

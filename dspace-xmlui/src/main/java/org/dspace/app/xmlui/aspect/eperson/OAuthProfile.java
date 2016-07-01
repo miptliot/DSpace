@@ -10,6 +10,39 @@ public class OAuthProfile {
     public String email;
 
     @Key
+    public String study_level;
+
+    @Key
+    public String faculty;
+
+    @Key
+    public String cathedra;
+
+    @Key
+    public String course;
+
+    @Key
+    public String study_group;
+
+    @Key
+    public String status;
+
+    @Key
+    public String payment_form;
+
+    @Key
+    public String study_plan;
+
+    @Key
+    public String speciality;
+
+    @Key
+    public String last_descree_date;
+
+    @Key
+    public String date_end;
+
+    @Key
     public String firstname;
 
     @Key

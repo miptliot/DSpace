@@ -290,7 +290,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.ArtifactBrowser.RestrictedItem.para_item_withdrawn">Запрашиваемый Вами документ был удалён и недоступен для просмотра</message>
 <message key="xmlui.ArtifactBrowser.RestrictedItem.para_item_restricted_auth">Вы не обладаете достаточными правами для просмотра данного документа. </message>
 <message key="xmlui.ArtifactBrowser.RestrictedItem.para_item_restricted">Вы не обладаете достаточными правами для просмотра данного документа. Пожалуйста, обратитесь к администратору.</message>
-        
+
 	<!-- Authentication messages used at the top of the login page:  -->
 <message key="xmlui.ArtifactBrowser.RestrictedItem.auth_header">Доступ к данному документу ограничен</message>
 <message key="xmlui.ArtifactBrowser.RestrictedItem.auth_message">Доступ к данному документу ограничен.Пожалуйста, войдите в систему.</message>
@@ -362,7 +362,7 @@ Translated by Ekaterina Chubich
 	<message key="xmlui.ArtifactBrowser.ItemRequestResponseTrueForm.subject">Subject</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestResponseTrueForm.mail">Send</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestResponseTrueForm.back">Back</message>
-	
+
 	 <!-- org.dspace.app.xmlui.artifactbrowser.ItemRequestChangeStatusForm.java -->
 	<message key="xmlui.ArtifactBrowser.ItemRequestChangeStatusForm.title">Change permissions request</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestChangeStatusForm.trail">Change permissions request</message>
@@ -373,14 +373,14 @@ Translated by Ekaterina Chubich
     <message key="xmlui.ArtifactBrowser.ItemRequestChangeStatusForm.name.error">The name is required</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestChangeStatusForm.email.error">The e-mail address is required</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestChangeStatusForm.changeToOpen">Change to open access</message>
-	        
+
 	<!-- org.dspace.app.xmlui.artifactbrowser.ItemRequestResponseFalseForm.java -->
 	<message key="xmlui.ArtifactBrowser.ItemRequestStatusChanged.title">Request sent</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestStatusChanged.trail">Request sent</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestStatusChanged.head">Your request to change permissions has been sent</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestStatusChanged.para1">Your request has been sent to the administrator</message>
 	<message key="xmlui.ArtifactBrowser.ItemRequestStatusChanged.para2">Thanks</message>
-	
+
 	<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 		                EPerson Aspect
@@ -552,10 +552,10 @@ Translated by Ekaterina Chubich
 <message key="xmlui.EPerson.VerifyEmail.head">Подтверждающее письмо отправлено</message>
 <message key="xmlui.EPerson.VerifyEmail.para">На адрес  {0} было отправлено подтверждающее письмо с дальнейшими инструкциями.</message>
 
-                                 
-                                 
-                                 
-                                 
+
+
+
+
 
 	<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -593,7 +593,7 @@ Translated by Ekaterina Chubich
 	<!-- org.dspace.app.xmlui.submission.Navigation -->
 <message key="xmlui.Submission.Navigation.submissions">Отправления</message>
 
-	
+
   <!-- org.dspace.app.xmlui.Submission.submissions -->
 <message key="xmlui.Submission.Submissions.title">Отправления и задачи</message>
 <message key="xmlui.Submission.Submissions.trail">Отправления</message>
@@ -613,7 +613,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.Submission.Submissions.workflow_info2">Нет задач, принадлежащих Вам</message>
 <message key="xmlui.Submission.Submissions.workflow_head3">Задачи, ожидающие очереди</message>
 <message key="xmlui.Submission.Submissions.workflow_submit_take">Взяться за следующие задачи</message>
-<message key="xmlui.Submission.Submissions.workflow_info3">Нет задач, ожидающих очереди</message>   
+<message key="xmlui.Submission.Submissions.workflow_info3">Нет задач, ожидающих очереди</message>
 	<!-- Same transformer, submissions section -->
 <message key="xmlui.Submission.Submissions.submit_head1">Отправка</message>
 <message key="xmlui.Submission.Submissions.submit_info1a">Вы можете </message>
@@ -641,7 +641,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.Submission.Submissions.status_0">Отправлено</message>
 <message key="xmlui.Submission.Submissions.status_1">Ожидает модерации</message>
 <message key="xmlui.Submission.Submissions.status_2">Модерируется</message>
-<message key="xmlui.Submission.Submissions.status_3">Ожидает редавтуры</message>
+<message key="xmlui.Submission.Submissions.status_3">Ожидает редактуры</message>
 <message key="xmlui.Submission.Submissions.status_4">Редактируется</message>
 <message key="xmlui.Submission.Submissions.status_5">Ожидает финальной редактуры</message>
 <message key="xmlui.Submission.Submissions.status_6">Отредактировано</message>
@@ -702,7 +702,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.Submission.submit.InitialQuestionsStep.publisher">Редактор</message>
 
 	<!-- org.dspace.app.xmlui.Submission.submit.DescribeStep -->
-<message key="xmlui.Submission.submit.DescribeStep.head">Описание документа</message>
+<message key="xmlui.Submission.submit.DescribeStep.head">Аннотация дипломной работы</message>
 <message key="xmlui.Submission.submit.DescribeStep.unknown_field">Ошибка: неизвестное поле</message>
 <message key="xmlui.Submission.submit.DescribeStep.required_field">Данное поле обязательно</message>
 <message key="xmlui.Submission.submit.DescribeStep.last_name_help">Фамилия, <i>например, Иванов</i></message>
@@ -718,7 +718,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.filter.button">Отфильтровать</message>
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.loading">Подождите, пока загружаются фильтры.</message>
 <message key="xmlui.Submission.submit.DescribeStep.controlledvocabulary.error">Ошибка загрузки. Повторите попытку позже</message>
- 
+
 
 	<!-- org.dspace.app.xmlui.Submission.submit.AccessStep -->
     <message key="xmlui.Submission.submit.AccessStep.head">Управление доступом</message>
@@ -758,7 +758,7 @@ Translated by Ekaterina Chubich
 
     <!-- org.dspace.app.xmlui.Submission.submit.EditPolicyStep -->
     <message key="xmlui.Submission.submit.EditPolicyStep.head">Изменить политику</message>
-    
+
 <!-- org.dspace.app.xmlui.Submission.submit.UploadStep -->
 <message key="xmlui.Submission.submit.UploadStep.head">Загрузить документ(ы)</message>
 <message key="xmlui.Submission.submit.UploadStep.file">Файл</message>
@@ -767,8 +767,8 @@ Translated by Ekaterina Chubich
 <message key="xmlui.Submission.submit.UploadStep.upload_error">Ошибка загрузки документа. Возможно, неверное имя файла, проблема соединения, или неверный формат документа.ПОжалуйста, посвторите попытку.</message>
 <message key="xmlui.Submission.submit.UploadStep.virus_error">Документ не был загружен, т.к., возможно, содержит вирус. Пожалуйста, свяжитесь с администрацией.</message>
 <message key="xmlui.Submission.submit.UploadStep.virus_checker_error">Ошибка распознания вируса в документе. Пожалуйста, свяжитесь с администрацией.</message>
-<message key="xmlui.Submission.submit.UploadStep.description">Описание документа</message>
-<message key="xmlui.Submission.submit.UploadStep.description_help">При желании, Вы можете добавить краткое описание документа, например "<i>Главная статья</i>", или "<i>Текст лекции</i>".</message>
+<message key="xmlui.Submission.submit.UploadStep.description">Аннотация дипломной работы</message>
+<message key="xmlui.Submission.submit.UploadStep.description_help">Добавьте аннотацию дипломной работы</message>
 <message key="xmlui.Submission.submit.UploadStep.submit_upload">Загрузить документ и добавить ещё один</message>
 <message key="xmlui.Submission.submit.UploadStep.head2">Мои документы</message>
 <message key="xmlui.Submission.submit.UploadStep.column0">Первичный файл</message>
@@ -817,7 +817,7 @@ Translated by Ekaterina Chubich
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_remove">Удалить выбранные файлы</message>
     <message key="xmlui.Submission.submit.UploadWithEmbargoStep.submit_policy">Правила включения</message>
 
-       
+
 	<!-- org.dspace.app.xmlui.Submission.submit.EditFileStep -->
 <message key="xmlui.Submission.submit.EditFileStep.head">Редактировать файл</message>
 <message key="xmlui.Submission.submit.EditFileStep.file">Файл</message>
@@ -833,7 +833,7 @@ Translated by Ekaterina Chubich
 
 	   <!-- org.dspace.app.xmlui.Submission.submit.EditBitstreamPolicies -->
     <message key="xmlui.Submission.submit.EditBitstreamPolicies.head">Доступ к Bitstream</message>
-    
+
 
     <!-- org.dspace.app.xmlui.Submission.submit.ReviewStep -->
 <message key="xmlui.Submission.submit.ReviewStep.head">Проверить отправляемый документ</message>
@@ -1363,7 +1363,7 @@ Translated by Ekaterina Chubich
     <message key="xmlui.administrative.authorization.EditPolicyForm.error_duplicated_policy">An identical policy for this group and this action is already in place.</message>
     <message key="xmlui.administrative.authorization.EditPolicyForm.error_start_date_greater_than_end_date">Start date is greater than end date</message>
     <message key="xmlui.administrative.authorization.EditPolicyForm.label_date_help">Accepted format: yyyy, yyyy-mm, yyyy-mm-dd</message>
-    
+
 	<!-- org.dspace.app.xmlui.administrative.authorization.AdvacedAuthorizationsForm -->
 	<message key="xmlui.administrative.authorization.AdvacedAuthorizationsForm.title">Advanced Policy Manager</message>
 	<message key="xmlui.administrative.authorization.AdvacedAuthorizationsForm.trail">Advanced Authorizations</message>
@@ -1389,7 +1389,7 @@ Translated by Ekaterina Chubich
     <message key="xmlui.administrative.authorization.AdvancedAuthorizationsForm.error_start_date_greater_than_end_date">Start date is greater than end date</message>
     <message key="xmlui.administrative.authorization.AdvancedAuthorizationsForm.error_groupIds">Выберите как минимум одну группу</message>
     <message key="xmlui.administrative.authorization.AdvancedAuthorizationsForm.error_collectionIds">Выберите как минимум одну коллекцию</message>
-    
+
     	<!-- org.dspace.app.xmlui.administrative.authorization.DeletePoliciesConfirm -->
 <message key="xmlui.administrative.authorization.DeletePoliciesConfirm.title">Подтвердите удаление привилегий</message>
 <message key="xmlui.administrative.authorization.DeletePoliciesConfirm.trail">Подтвердить удаление</message>
@@ -1546,7 +1546,7 @@ Translated by Ekaterina Chubich
     <message key="xmlui.administrative.item.EditItemStatusForm.label_public">Сделать публичным</message>
     <message key="xmlui.administrative.item.EditItemStatusForm.submit_private">Сделать приватным...</message>
     <message key="xmlui.administrative.item.EditItemStatusForm.submit_public">Сделать публичным...</message>
-    
+
 	<!-- org.dspace.app.xmlui.administrative.item.ViewItem -->
 	<message key="xmlui.administrative.item.ViewItem.title">View Item</message>
 	<message key="xmlui.administrative.item.ViewItem.trail">View Item</message>
@@ -1952,7 +1952,7 @@ Translated by Ekaterina Chubich
 <message key="xmlui.administrative.NotAuthorized.para1b">с администратором системы</message>
 <message key="xmlui.administrative.NotAuthorized.para1c">.</message>
 <message key="xmlui.administrative.NotAuthorized.para2">Войти ка другой пользователь</message>
-        
+
         <!-- System-wide Curation Tasks form (org.dspace.app.xmlui.aspect.administrative.CurateForm) -->
 <message key="xmlui.administrative.CurateForm.title">Задачи по курированию системы</message>
 <message key="xmlui.administrative.CurateForm.trail">Задачи по курированию</message>
@@ -2002,7 +2002,7 @@ Translated by Ekaterina Chubich
     <message key="xmlui.statistics.StatisticsSearchTransformer.time-filter.overall">Всего</message>
 
 
-    <message key="xmlui.statistics.display.table.column-label.search-terms">Критерий поиска</message>                    
+    <message key="xmlui.statistics.display.table.column-label.search-terms">Критерий поиска</message>
     <message key="xmlui.statistics.display.table.column-label.searches">Поиск</message>
     <message key="xmlui.statistics.display.table.column-label.percent-total">всего % </message>
     <message key="xmlui.statistics.display.table.column-label.views-search">Просмотры / Поиск</message>
@@ -2409,7 +2409,7 @@ Translated by Ekaterina Chubich
     <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.contributor.author_browse">Просмотр по: Автору</message>
     <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.title_browse">Просмотр по: Названию</message>
     <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.subject_browse">Просмотр по: Теме</message>
-        
+
     <message key="xmlui.ArtifactBrowser.AbstractSearch.type_dc.description.abstract_browse">Просмотр по: Аннотации</message>
     <message key="xmlui.ArtifactBrowser.AbstractSearch.type_series_browse">Просмотр по: Серии</message>
     <message key="xmlui.ArtifactBrowser.AbstractSearch.type_sponsor_browse">Просмотр по: Грантодателю</message>
@@ -2484,7 +2484,7 @@ Translated by Ekaterina Chubich
 	<message key="xmlui.Discovery.SimpleSearch.filter.notcontains">Не содержит</message>
     <message key="xmlui.Discovery.SimpleSearch.filter.notequals">Не равно</message>
     <message key="xmlui.Discovery.SimpleSearch.filter.notauthority">Нет ID</message>
-    
+
     <message key="xmlui.Discovery.RelatedItems.head">Похожие материалы</message>
     <message key="xmlui.Discovery.RelatedItems.help">Показаны элементы, связанные по названию, автору , создателю и теме.</message>
 

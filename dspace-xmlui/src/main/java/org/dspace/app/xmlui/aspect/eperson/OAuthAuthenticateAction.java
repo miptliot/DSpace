@@ -173,7 +173,7 @@ public class OAuthAuthenticateAction extends AbstractAction {
             // OAuthProfile oAuthStudent = httpResponse.parseAs(OAuthProfile.class);
 
             HttpServletResponse redirectResponse = ((HttpServletResponse) objectModel.get(HttpEnvironment.HTTP_RESPONSE_OBJECT));
-            if (!oAuthEmail.email.split("@")[1].equals("phystech.edu")) {
+            if (!oAuthEmail.email.split("@")[1].equals("phystech.edu") && !oAuthEmail.email.split("@")[1].equals("mipt.ru")) {
               // redirect to main page if not student
               redirectResponse.sendRedirect("http://mipt.ru");
               return null;

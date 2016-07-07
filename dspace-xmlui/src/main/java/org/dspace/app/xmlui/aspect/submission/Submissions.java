@@ -44,52 +44,52 @@ import org.xml.sax.SAXException;
 public class Submissions extends AbstractDSpaceTransformer
 {
 	/** General Language Strings */
-    protected static final Message T_title = 
+    protected static final Message T_title =
         message("xmlui.Submission.Submissions.title");
-    protected static final Message T_dspace_home = 
-        message("xmlui.general.dspace_home"); 
-    protected static final Message T_trail = 
+    protected static final Message T_dspace_home =
+        message("xmlui.general.dspace_home");
+    protected static final Message T_trail =
         message("xmlui.Submission.Submissions.trail");
-    protected static final Message T_head = 
+    protected static final Message T_head =
         message("xmlui.Submission.Submissions.head");
-    protected static final Message T_untitled = 
+    protected static final Message T_untitled =
         message("xmlui.Submission.Submissions.untitled");
-    protected static final Message T_email = 
+    protected static final Message T_email =
         message("xmlui.Submission.Submissions.email");
 
     // used by the unfinished submissions section
-    protected static final Message T_s_head1 = 
-        message("xmlui.Submission.Submissions.submit_head1"); 
-    protected static final Message T_s_info1a = 
-        message("xmlui.Submission.Submissions.submit_info1a"); 
-    protected static final Message T_s_info1b = 
-        message("xmlui.Submission.Submissions.submit_info1b"); 
-    protected static final Message T_s_info1c = 
-        message("xmlui.Submission.Submissions.submit_info1c"); 
-    protected static final Message T_s_head2 = 
-        message("xmlui.Submission.Submissions.submit_head2"); 
-    protected static final Message T_s_info2a = 
-        message("xmlui.Submission.Submissions.submit_info2a"); 
-    protected static final Message T_s_info2b = 
-        message("xmlui.Submission.Submissions.submit_info2b"); 
-    protected static final Message T_s_info2c = 
-        message("xmlui.Submission.Submissions.submit_info2c"); 
-    protected static final Message T_s_column1 = 
-        message("xmlui.Submission.Submissions.submit_column1"); 
-    protected static final Message T_s_column2 = 
-        message("xmlui.Submission.Submissions.submit_column2"); 
-    protected static final Message T_s_column3 = 
-        message("xmlui.Submission.Submissions.submit_column3"); 
-    protected static final Message T_s_column4 = 
-        message("xmlui.Submission.Submissions.submit_column4"); 
-    protected static final Message T_s_head3 = 
-        message("xmlui.Submission.Submissions.submit_head3"); 
-    protected static final Message T_s_info3 = 
-        message("xmlui.Submission.Submissions.submit_info3"); 
-    protected static final Message T_s_head4 = 
-        message("xmlui.Submission.Submissions.submit_head4"); 
-    protected static final Message T_s_submit_remove = 
-        message("xmlui.Submission.Submissions.submit_submit_remove"); 
+    protected static final Message T_s_head1 =
+        message("xmlui.Submission.Submissions.submit_head1");
+    protected static final Message T_s_info1a =
+        message("xmlui.Submission.Submissions.submit_info1a");
+    protected static final Message T_s_info1b =
+        message("xmlui.Submission.Submissions.submit_info1b");
+    protected static final Message T_s_info1c =
+        message("xmlui.Submission.Submissions.submit_info1c");
+    protected static final Message T_s_head2 =
+        message("xmlui.Submission.Submissions.submit_head2");
+    protected static final Message T_s_info2a =
+        message("xmlui.Submission.Submissions.submit_info2a");
+    protected static final Message T_s_info2b =
+        message("xmlui.Submission.Submissions.submit_info2b");
+    protected static final Message T_s_info2c =
+        message("xmlui.Submission.Submissions.submit_info2c");
+    protected static final Message T_s_column1 =
+        message("xmlui.Submission.Submissions.submit_column1");
+    protected static final Message T_s_column2 =
+        message("xmlui.Submission.Submissions.submit_column2");
+    protected static final Message T_s_column3 =
+        message("xmlui.Submission.Submissions.submit_column3");
+    protected static final Message T_s_column4 =
+        message("xmlui.Submission.Submissions.submit_column4");
+    protected static final Message T_s_head3 =
+        message("xmlui.Submission.Submissions.submit_head3");
+    protected static final Message T_s_info3 =
+        message("xmlui.Submission.Submissions.submit_info3");
+    protected static final Message T_s_head4 =
+        message("xmlui.Submission.Submissions.submit_head4");
+    protected static final Message T_s_submit_remove =
+        message("xmlui.Submission.Submissions.submit_submit_remove");
 
     // Used in the completed submissions section
     protected static final Message T_c_head =
@@ -141,11 +141,11 @@ public class Submissions extends AbstractDSpaceTransformer
     }
 
     /**
-     * If the user has any workflow tasks, either assigned to them or in an 
+     * If the user has any workflow tasks, either assigned to them or in an
      * available pool of tasks, then build two tables listing each of these queues.
-     * 
+     *
      * If the user doesn't have any workflows then don't do anything.
-     * 
+     *
      * @param division The division to add the two queues too.
      */
     private void addWorkflowTasksDiv(Division division) throws SQLException, WingException, AuthorizeException, IOException {
@@ -153,15 +153,15 @@ public class Submissions extends AbstractDSpaceTransformer
         }
 
     /**
-     * There are two options:  the user has some unfinished submissions 
+     * There are two options:  the user has some unfinished submissions
      * or the user does not.
-     * 
-     * If the user does not, then we just display a simple paragraph 
+     *
+     * If the user does not, then we just display a simple paragraph
      * explaining that the user may submit new items to dspace.
-     * 
-     * If the user does have unfinished submissions then a table is 
+     *
+     * If the user does have unfinished submissions then a table is
      * presented listing all the unfinished submissions that this user has.
-     * 
+     *
      */
     private void addUnfinishedSubmissions(Division division) throws SQLException, WingException
     {
@@ -191,7 +191,8 @@ public class Submissions extends AbstractDSpaceTransformer
     	unfinished.setHead(T_s_head2);
     	Para p = unfinished.addPara();
     	p.addContent(T_s_info2a);
-    	p.addHighlight("bold").addXref(contextPath+"/submit",T_s_info2b);
+      p.addContent(T_s_info2b);
+    	// p.addHighlight("bold").addXref(contextPath+"/submit",T_s_info2b);
     	p.addContent(T_s_info2c);
 
     	// Calculate the number of rows.
@@ -221,7 +222,7 @@ public class Submissions extends AbstractDSpaceTransformer
 
         if (unfinishedItems.length > 0)
         {
-            for (WorkspaceItem workspaceItem : unfinishedItems) 
+            for (WorkspaceItem workspaceItem : unfinishedItems)
             {
                 Metadatum[] titles = workspaceItem.getItem().getDC("title", null, Item.ANY);
                 EPerson submitterEPerson = workspaceItem.getItem().getSubmitter();
@@ -251,7 +252,7 @@ public class Submissions extends AbstractDSpaceTransformer
                 cell.addContent(T_email);
                 cell.addXref("mailto:"+submitterEmail,submitterName);
             }
-        } 
+        }
         else
         {
             header = table.addRow();
@@ -264,7 +265,7 @@ public class Submissions extends AbstractDSpaceTransformer
             header.addCell(null,Cell.ROLE_HEADER,0,5,null).addContent(T_s_head4);
         }
 
-        for (WorkspaceItem workspaceItem : supervisedItems) 
+        for (WorkspaceItem workspaceItem : supervisedItems)
         {
 
             Metadatum[] titles = workspaceItem.getItem().getDC("title", null, Item.ANY);
@@ -310,7 +311,7 @@ public class Submissions extends AbstractDSpaceTransformer
 
     /**
      * This section lists all the submissions that this user has submitted which are currently under review.
-     * 
+     *
      * If the user has none, this nothing is displayed.
      */
     private void addSubmissionsInWorkflowDiv(Division division)
@@ -321,11 +322,11 @@ public class Submissions extends AbstractDSpaceTransformer
 
     /**
      * Show the user's completed submissions.
-     * 
+     *
      * If the user has no completed submissions, display nothing.
      * If 'displayAll' is true, then display all user's archived submissions.
      * Otherwise, default to only displaying 50 archived submissions.
-     * 
+     *
      * @param division div to put archived submissions in
      * @param displayAll whether to display all or just a limited number.
      */
@@ -346,7 +347,7 @@ public class Submissions extends AbstractDSpaceTransformer
         ItemIterator subs = Item.findBySubmitterDateSorted(context, context.getCurrentUser(), limit);
 
         //NOTE: notice we are adding each item to this list in *reverse* order...
-        // this is a very basic attempt at making more recent submissions float 
+        // this is a very basic attempt at making more recent submissions float
         // up to the top of the list (findBySubmitter() doesn't guarrantee
         // chronological order, but tends to return older items near top of the list)
         try
@@ -378,7 +379,7 @@ public class Submissions extends AbstractDSpaceTransformer
         header.addCellContent(T_c_column3); // COLLECTION NAME (LINKED)
 
         //Limit to showing just 50 archived submissions, unless overridden
-        //(This is a saftey measure for Admins who may have submitted 
+        //(This is a saftey measure for Admins who may have submitted
         // thousands of items under their account via bulk ingest tools, etc.)
         int count = 0;
 
@@ -433,7 +434,7 @@ public class Submissions extends AbstractDSpaceTransformer
             Para limitedList = completedSubmissions.addPara();
             limitedList.addContent(T_c_limit);
             limitedList.addXref(contextPath + "/submissions?all", T_c_displayall);
-        }    
+        }
     }
 
 }
